@@ -17,11 +17,13 @@ class LoginForm extends Component {
     this.props.passwordChange(text);
   }
   onButtonPress() {
-    const { email, password } = this.props;
+    const { email, password, error } = this.props;
     this.props.loginUser({ email, password });
-  };
+  }
 
   render() {
+    const { error } = this.props;
+
     return (
       <View style={{ paddingTop: 50 }}>
         <Card>
@@ -42,11 +44,15 @@ class LoginForm extends Component {
               value={this.props.password}
             />
           </CardSection>
-          <Text style={{ fontSize: 16, color: 'red', margin: 5 }}>** {this.props.error}</Text>
+          {error ? (
+            <Text style={{ fontSize: 16, color: 'red', margin: 5, alignSelf: 'center' }}>
+              ** {error}
+            </Text>
+          ) : null}
           <CardSection>
             <Button onPress={this.onButtonPress.bind(this)}>
               Login
-          </Button>
+            </Button>
           </CardSection>
         </Card>
       </View>

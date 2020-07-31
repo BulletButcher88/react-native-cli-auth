@@ -19,10 +19,12 @@ export default (state = INITIAL_STATE, action) => {
       return {
         ...state,
         user: action.payload,
+        error: '',
       };
     case LOGIN_ERROR:
       return {
         ...state,
+        user: null,
         error: action.payload,
       };
     default:
