@@ -6,7 +6,7 @@ import Card from './common/Card';
 import Input from './common/Input';
 import Button from './common/Button';
 
-import { emailChange, passwordChange } from '../actions';
+import { emailChange, passwordChange, loginUser } from '../actions';
 
 class LoginForm extends Component {
   onEmailChange(text) {
@@ -16,6 +16,10 @@ class LoginForm extends Component {
   onPasswordChange(text) {
     this.props.passwordChange(text);
   }
+  onButtonPress() {
+    const { email, password } = this.props;
+    this.props.loginUser({ email, password });
+  };
 
   render() {
     return (
@@ -39,7 +43,7 @@ class LoginForm extends Component {
             />
           </CardSection>
           <CardSection>
-            <Button>
+            <Button onPress={this.onButtonPress.bind(this)}>
               Login
           </Button>
           </CardSection>
@@ -56,4 +60,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps, { emailChange, passwordChange })(LoginForm);
+export default connect(mapStateToProps, { emailChange, passwordChange, loginUser })(LoginForm);
