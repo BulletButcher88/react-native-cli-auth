@@ -42,6 +42,7 @@ class LoginForm extends Component {
               value={this.props.password}
             />
           </CardSection>
+          <Text style={{ fontSize: 16, color: 'red', margin: 5 }}>** {this.props.error}</Text>
           <CardSection>
             <Button onPress={this.onButtonPress.bind(this)}>
               Login
@@ -57,6 +58,7 @@ const mapStateToProps = (state) => {
   return {
     email: state.auth.email,
     password: state.auth.password,
+    error: state.auth.error,
   };
 };
 
