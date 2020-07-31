@@ -5,6 +5,7 @@ import CardSection from './common/CardSection';
 import Card from './common/Card';
 import Input from './common/Input';
 import Button from './common/Button';
+import Spinner from './common/Spinner';
 
 import { emailChange, passwordChange, loginUser } from '../actions';
 
@@ -17,12 +18,19 @@ class LoginForm extends Component {
     this.props.passwordChange(text);
   }
   onButtonPress() {
-    const { email, password, error } = this.props;
+    const { email, password } = this.props;
     this.props.loginUser({ email, password });
   }
 
+  renderButton() {
+    if (this.props.loading) {
+      return <Spinner size="large" />;
+    }
+    return <Button onPress={this.onButtonPress.bind(this)}>Login</Button>;
+  }
+
   render() {
-    const { error } = this.props;
+    const { email, password, error } = this.props;
 
     return (
       <View style={{ paddingTop: 50 }}>
@@ -32,7 +40,7 @@ class LoginForm extends Component {
               label="Email"
               placeholder="email@email.com"
               onChangeText={this.onEmailChange.bind(this)}
-              value={this.props.email}
+              value={email}
             />
           </CardSection>
           <CardSection>
@@ -41,7 +49,7 @@ class LoginForm extends Component {
               label="Password"
               placeholder="password"
               onChangeText={this.onPasswordChange.bind(this)}
-              value={this.props.password}
+              value={password}
             />
           </CardSection>
           {error ? (
@@ -49,22 +57,20 @@ class LoginForm extends Component {
               ** {error}
             </Text>
           ) : null}
-          <CardSection>
-            <Button onPress={this.onButtonPress.bind(this)}>
-              Login
-            </Button>
-          </CardSection>
+          <CardSection>{this.renderButton()}</CardSection>
         </Card>
       </View>
     );
   }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = ({ auth }) => {
+  const { email, password, error, loading } = auth;
   return {
-    email: state.auth.email,
-    password: state.auth.password,
-    error: state.auth.error,
+    email,
+    password,
+    error,
+    loading,
   };
 };
 
