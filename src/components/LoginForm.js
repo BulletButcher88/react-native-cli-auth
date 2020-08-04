@@ -33,7 +33,7 @@ class LoginForm extends Component {
     const { email, password, error } = this.props;
 
     return (
-      <View style={{ paddingTop: 50 }}>
+      <View>
         <Card>
           <CardSection>
             <Input
