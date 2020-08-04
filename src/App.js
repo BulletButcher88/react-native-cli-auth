@@ -4,8 +4,7 @@ import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import reducer from './reducer';
 import firebase from 'firebase';
-
-import LoginForm from './components/LoginForm';
+import RouterComponent from './Router';
 
 class App extends Component {
   UNSAFE_componentWillMount() {
@@ -26,7 +25,7 @@ class App extends Component {
     const store = createStore(reducer, {}, applyMiddleware(ReduxTrunk))
     return (
       <Provider store={store}>
-        <LoginForm />
+        <RouterComponent />
       </Provider>
     );
   }
