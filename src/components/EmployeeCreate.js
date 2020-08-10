@@ -10,9 +10,8 @@ import Button from './common/Button';
 class EmployeeCreate extends Component {
 
   onButtonPress() {
-    const { name, phone, shift } = this.props;
-    this.props.employeeCreate({ name, phone, shift });
-
+    const { empName, phone, shift } = this.props;
+    this.props.employeeCreate({ name: empName, phone, shift: shift || 'Monday' });
   }
 
   render() {
@@ -79,6 +78,7 @@ const mapStateToProps = (state) => {
   return { empName, phone, shift };
 };
 
-export default connect(mapStateToProps, { employeeUpdate, employeeCreate })(
-  EmployeeCreate,
-);
+export default connect(mapStateToProps, {
+  employeeUpdate,
+  employeeCreate,
+})(EmployeeCreate);
