@@ -23,7 +23,8 @@ class EmployeeList extends Component {
       <FlatList
         data={employeeArr}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => Actions.employeeForm()}>
+          <TouchableOpacity
+            onPress={() => Actions.employeeForm({ employee: item })}>
             <Text style={styles.item}>{item.name}</Text>
           </TouchableOpacity>
         )}
