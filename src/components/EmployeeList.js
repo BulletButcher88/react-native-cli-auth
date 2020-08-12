@@ -1,7 +1,8 @@
 import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { Actions } from 'react-native-router-flux';
+import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { employeeFetch } from '../actions/EmployeeAction';
 
 class EmployeeList extends Component {
@@ -21,7 +22,11 @@ class EmployeeList extends Component {
     return (
       <FlatList
         data={employeeArr}
-        renderItem={({ item }) => <Text style={styles.item}>{item.name}</Text>}
+        renderItem={({ item }) => (
+          <TouchableOpacity onPress={() => Actions.employeeForm()}>
+            <Text style={styles.item}>{item.name}</Text>
+          </TouchableOpacity>
+        )}
       />
     );
   }
