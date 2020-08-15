@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { View, Picker, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { employeeUpdate } from '../actions/EmployeeAction';
 import CardSection from '../components/common/CardSection';
 import Input from '../components/common/Input';
 
-
 class EmployeeForm extends Component {
-
   render() {
     return (
       <View>
-
         <CardSection>
           <Input
             placeholder="Jane Dole"
@@ -50,8 +49,21 @@ class EmployeeForm extends Component {
           </Picker>
         </CardSection>
       </View>
-    )
+    );
   }
 }
 
-export default EmployeeForm;
+const styles = {
+  pickerTextStyle: {
+    fontSize: 13,
+    color: 'grey',
+    paddingLeft: 20,
+  },
+};
+
+const mapStatesToProps = state => {
+  const { empName, phone, shift } = state.employeeForm;
+  return { empName, phone, shift };
+};
+
+export default connect(mapStatesToProps, { employeeUpdate })(EmployeeForm);

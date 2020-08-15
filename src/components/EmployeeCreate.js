@@ -4,6 +4,7 @@ import { employeeUpdate, employeeCreate } from '../actions/EmployeeAction';
 import Card from './common/Card';
 import CardSection from './common/CardSection';
 import Button from './common/Button';
+import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
 
@@ -13,9 +14,9 @@ class EmployeeCreate extends Component {
   }
 
   render() {
-    console.log(this.props.employee);
     return (
       <Card>
+        <EmployeeForm {...this.props} />
         <CardSection style={{ position: "absolute", top: 300 }}>
           <Button onPress={this.onButtonPress.bind(this)}>Save</Button>
         </CardSection>
@@ -23,14 +24,6 @@ class EmployeeCreate extends Component {
     );
   }
 }
-
-const styles = {
-  pickerTextStyle: {
-    fontSize: 13,
-    color: 'grey',
-    paddingLeft: 20,
-  },
-};
 
 const mapStateToProps = (state) => {
   const { empName, phone, shift } = state.employeeForm;
