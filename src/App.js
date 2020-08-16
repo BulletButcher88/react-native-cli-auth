@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { API_KEY } from 'react-native-dotenv';
 import ReduxTrunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
@@ -10,7 +9,7 @@ import RouterComponent from './Router';
 class App extends Component {
   UNSAFE_componentWillMount() {
     const config = {
-      apiKey: API_KEY,
+      apiKey: 'AIzaSyBp1sV89Zlo-Cqz7ZiLBvtmB4Qn6ltbrF0',
       authDomain: 'manager-rn997.firebaseapp.com',
       databaseURL: 'https://manager-rn997.firebaseio.com',
       projectId: 'manager-rn997',

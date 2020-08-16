@@ -7,8 +7,9 @@ import Button from './common/Button';
 import Card from './common/Card';
 
 class EmployeeEdit extends Component {
-  onButtonPush() {
-    console.log(this.props.employee);
+
+  componentWillMount() {
+    // console.log(this.props.employee);
   }
 
   render() {
@@ -16,7 +17,7 @@ class EmployeeEdit extends Component {
       <Card>
         <EmployeeForm />
         <CardSection>
-          <Button onPress={() => this.onButtonPush()}>
+          <Button>
             Save
           </Button>
         </CardSection>
