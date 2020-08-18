@@ -9,8 +9,8 @@ import EmployeeForm from './EmployeeForm';
 class EmployeeCreate extends Component {
 
   onButtonPress() {
-    const { empName, phone, shift } = this.props;
-    this.props.employeeCreate({ name: empName, phone, shift: shift || 'Monday' });
+    const { name, phone, shift } = this.props;
+    this.props.employeeCreate({ name: name, phone: phone, shift: shift || 'Monday' });
   }
 
   render() {
@@ -26,8 +26,8 @@ class EmployeeCreate extends Component {
 }
 
 const mapStateToProps = (state) => {
-  const { empName, phone, shift } = state.employeeForm;
-  return { empName, phone, shift };
+  const { name, phone, shift } = state.employeeForm;
+  return { name, phone, shift };
 };
 
 export default connect(mapStateToProps, {
