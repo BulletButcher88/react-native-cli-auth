@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Action } from 'react-native-router-flux';
+import { Actions } from 'react-native-router-flux';
 import { View, Text, FlatList, StyleSheet, TouchableOpacity } from 'react-native';
 import { employeeFetch } from '../actions/EmployeeAction';
 
@@ -22,7 +22,8 @@ class EmployeeList extends Component {
       <FlatList
         data={employeeArr}
         renderItem={({ item }) => (
-          <TouchableOpacity onPress={() => Action.employeeForm()}>
+          <TouchableOpacity
+            onPress={() => Actions.employeeForm({ employee: item })}>
             <Text style={styles.item}>{item.name}</Text>
           </TouchableOpacity>
         )}
@@ -53,7 +54,7 @@ const styles = StyleSheet.create({
   },
 })
 
-const mapStateToProps = state => {
+const mapStateToProps = (state) => {
   const employees = state.employees;
   return { employees };
 };
