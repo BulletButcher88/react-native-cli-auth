@@ -1,7 +1,7 @@
-// {
-//   "presets": [
-//     "module:metro-react-native-babel-preset"
-//   ],
-//   "plugins": []
-// }
+{
+  "presets": [
+    "module:metro-react-native-babel-preset"
+  ],
+  "plugins": []
+}
 // above is incase package.json   "main": "./index.js", doesn't work

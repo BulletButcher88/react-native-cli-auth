@@ -13,11 +13,18 @@ class EmployeeEdit extends Component {
       <Card>
         <EmployeeForm />
         <CardSection>
-          <Button onPress={() => console.log(this.props)}>Save</Button>
+          <Button onPress={() => console.log(this.props.name)}>
+            Save Changes {this.props.name}
+          </Button>
         </CardSection>
       </Card>
     );
   }
 }
 
-export default connect(null)(EmployeeEdit);
+const mapStateToProps = state => {
+  const { name, phone, shift } = state.employees;
+  return { name, phone, shift };
+}
+
+export default connect(mapStateToProps, { employeeUpdate })(EmployeeEdit);
