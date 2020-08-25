@@ -12,7 +12,7 @@ class EmployeeEdit extends Component {
     return (
       <Card>
         <EmployeeForm />
-        <CardSection>
+        <CardSection style={{ position: "absolute", top: 300 }}>
           <Button onPress={() => console.log(this.props.name)}>
             Save Changes {this.props.name}
           </Button>

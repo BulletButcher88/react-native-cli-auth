@@ -23,7 +23,7 @@ class EmployeeList extends Component {
         data={employeeArr}
         renderItem={({ item }) => (
           <TouchableOpacity
-            onPress={() => Actions.employeeForm({ employee: item })}>
+            onPress={() => Actions.employeeEdit({ employee: item })}>
             <Text style={styles.item}>{item.name}</Text>
           </TouchableOpacity>
         )}
@@ -38,6 +38,8 @@ class EmployeeList extends Component {
           {this.createDataSource(this.props.employees)}
         </View>
       );
+    } else {
+      return null;
     }
   }
 }
