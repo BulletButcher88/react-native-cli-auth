@@ -6,8 +6,10 @@ import { employeeUpdate, employeeSave } from '../actions/EmployeeAction';
 import CardSection from './common/CardSection';
 import Button from './common/Button';
 import Card from './common/Card';
+import Confirm from './common/Confirm';
 
 class EmployeeEdit extends Component {
+  state = { showModal: false };
 
   UNSAFE_componentWillMount() {
     if (this.props.employee) {
@@ -36,10 +38,17 @@ class EmployeeEdit extends Component {
           <Button onPress={this.onButtonPush.bind(this)}>Save Changes</Button>
         </CardSection>
         <CardSection style={{ position: "absolute", top: 355 }}>
-          <Button onPress={this.onTextPress.bind(this)}>
-            Text Schedule
+          <Button onPress={this.onTextPress.bind(this)}>Text Schedule</Button>
+        </CardSection>
+        <CardSection style={{ position: "absolute", top: 410 }}>
+          <Button
+            onPress={() => this.setState({ showModal: !this.state.showModal })}>
+            Fire Employee
           </Button>
         </CardSection>
+        <Confirm visible={this.state.showModal}>
+          Are you sure you want to delete this employee?
+        </Confirm>
       </Card>
     );
   }
