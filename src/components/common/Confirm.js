@@ -1,33 +1,30 @@
 import React from 'react';
-import { View, Text, Modal } from 'react-native';
-import { CardSection } from './CardSection';
-import { Button } from './Button';
+import { View, Text, Modal, StyleSheet } from 'react-native';
+import CardSection from './CardSection';
+import Button from './Button';
 
 const Confirm = ({ children, visible, onAccept, onDecline }) => {
-  const { cardSectionStyle, textStyle, containerStyle } = styles;
-
   return (
     <Modal
       visible={visible}
       transparent
       animationType="slide"
       onRequestClose={() => { }}>
-      <View style={containerStyle}>
-        <Text>WHAT?</Text>
-        {/* <CardSection style={cardSectionStyle}>
-          <Text style={textStyle}>{children}</Text>
+      <View style={styles.containerStyle}>
+        <CardSection style={styles.cardSectionStyle}>
+          <Text style={styles.textStyle}>{children}</Text>
         </CardSection>
 
         <CardSection>
           <Button onPress={onAccept}>Yes</Button>
           <Button onPress={onDecline}>No</Button>
-        </CardSection> */}
+        </CardSection>
       </View>
     </Modal>
   );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   cardSectionStyle: {
     justifyContent: 'center',
   },
@@ -38,10 +35,11 @@ const styles = {
     lineHeight: 40,
   },
   containerStyle: {
-    backgroundColor: `rgba( 0, 0, 0, 0.75)`,
+    height: 900,
+    backgroundColor: 'rgba(50, 50, 50, 0.95)',
     position: 'relative',
     justifyContent: 'center',
   },
-};
+});
 
 export default Confirm;
