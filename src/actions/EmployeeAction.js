@@ -15,8 +15,8 @@ export const employeeCreate = ({ name, phone, shift }) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
       .push({ name, phone, shift })
       .then(() => {
-        dispatch({ type: EMPLOYEE_CREATE });
-        Actions.pop({ type: 'reset' })
+        dispatch({ type: EMPLOYEE_FETCH_SUCCESS });
+        Actions.employeeList({ type: 'reset' });
       });
     //the type: 'reset' above takes out the back-button that normally shows at the top of the page in the admin page
   };
@@ -52,11 +52,5 @@ export const employeeDelete = ({ key }) => {
       .then(() => {
         Actions.employeeList({ type: 'reset' });
       });
-  };
-};
-
-export const employeeFormClear = () => {
-  return {
-    type: EMPLOYEE_CREATE,
   };
 };

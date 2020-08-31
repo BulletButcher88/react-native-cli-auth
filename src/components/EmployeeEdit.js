@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import Communications from 'react-native-communications'
 import EmployeeForm from './EmployeeForm';
