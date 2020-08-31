@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Text } from 'react-native';
 import { connect } from 'react-redux';
 import Communications from 'react-native-communications'
 import EmployeeForm from './EmployeeForm';
@@ -31,8 +32,8 @@ class EmployeeEdit extends Component {
   }
 
   onAccept() {
-    const { uid } = this.props.employees;
-    this.props.employeeDelete({ uid });
+    const { key } = this.props.employees;
+    this.props.employeeDelete({ key });
   }
 
   render() {
@@ -65,6 +66,6 @@ class EmployeeEdit extends Component {
 const mapStateToProps = state => {
   const employees = state.employeeForm;
   return { employees };
-}
+};
 
 export default connect(mapStateToProps, { employeeUpdate, employeeSave, employeeDelete })(EmployeeEdit);
