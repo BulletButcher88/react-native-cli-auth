@@ -1,4 +1,8 @@
-import { EMPLOYEE_UPDATE, EMPLOYEE_CREATE, EMPLOYEE_SAVE_SUCCESS } from '../actions/types';
+import {
+  EMPLOYEE_UPDATE,
+  EMPLOYEE_CREATE,
+  EMPLOYEE_SAVE_SUCCESS,
+} from '../actions/types';
 
 const CLEAR_STATE = {
   name: '',

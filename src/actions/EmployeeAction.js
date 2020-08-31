@@ -15,7 +15,7 @@ export const employeeCreate = ({ name, phone, shift }) => {
     firebase.database().ref(`/users/${currentUser.uid}/employees`)
       .push({ name, phone, shift })
       .then(() => {
-        dispatch({ type: EMPLOYEE_FETCH_SUCCESS });
+        dispatch({ type: EMPLOYEE_CREATE });
         Actions.employeeList({ type: 'reset' });
       });
     //the type: 'reset' above takes out the back-button that normally shows at the top of the page in the admin page
