@@ -32,10 +32,10 @@ export const employeeFetch = () => {
   };
 };
 
-export const employeeSave = ({ name, phone, shift, uid }) => {
+export const employeeSave = ({ name, phone, shift, key }) => {
   const { currentUser } = firebase.auth();
   return (dispatch) => {
-    firebase.database().ref(`/users/${currentUser.uid}/employees/${uid}`)
+    firebase.database().ref(`/users/${currentUser.uid}/employees/${key}`)
       .set({ name, phone, shift })
       .then(() => {
         dispatch({ type: EMPLOYEE_SAVE_SUCCESS });

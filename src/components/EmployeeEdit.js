@@ -22,7 +22,7 @@ class EmployeeEdit extends Component {
   }
   onButtonPush() {
     const { name, phone, shift } = this.props.employees;
-    this.props.employeeSave({ name, phone, shift, uid: this.props.employee.uid });
+    this.props.employeeSave({ name, phone, shift, key: this.props.employee.key });
   }
 
   onTextPress() {
