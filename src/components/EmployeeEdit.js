@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import Communications from 'react-native-communications'
+import Communications from 'react-native-communications';
 import EmployeeForm from './EmployeeForm';
 import { employeeUpdate, employeeSave, employeeDelete } from '../actions/EmployeeAction';
 import CardSection from './common/CardSection';
@@ -20,6 +20,7 @@ class EmployeeEdit extends Component {
       return null;
     }
   }
+
   onButtonPush() {
     const { name, phone, shift } = this.props.employees;
     this.props.employeeSave({ name, phone, shift, key: this.props.employee.key });

@@ -4,7 +4,11 @@ import {
   EMPLOYEE_SAVE_SUCCESS,
 } from '../actions/types';
 
-const CLEAR_STATE = [];
+const CLEAR_STATE = {
+  name: '',
+  phone: '',
+  shift: '',
+};
 
 export default (state = CLEAR_STATE, action) => {
   switch (action.type) {
