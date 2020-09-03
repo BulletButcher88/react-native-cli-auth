@@ -7,7 +7,6 @@ import Button from './common/Button';
 import EmployeeForm from './EmployeeForm';
 
 class EmployeeCreate extends Component {
-
   onButtonPress() {
     const { name, phone, shift, key } = this.props;
     this.props.employeeCreate({ name: name, phone: phone || "No number", shift: shift || 'Monday', key: key });
