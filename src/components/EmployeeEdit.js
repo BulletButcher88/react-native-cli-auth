@@ -39,7 +39,7 @@ class EmployeeEdit extends Component {
   render() {
     return (
       <Card>
-        <EmployeeForm />
+        <EmployeeForm {...this.props} />
         <CardSection style={{ position: "absolute", top: 300 }}>
           <Button onPress={this.onButtonPush.bind(this)}>Save Changes</Button>
         </CardSection>

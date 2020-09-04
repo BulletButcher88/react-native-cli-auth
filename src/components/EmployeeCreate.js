@@ -15,7 +15,7 @@ class EmployeeCreate extends Component {
   render() {
     return (
       <Card>
-        <EmployeeForm {...this.props} />
+        <EmployeeForm />
         <CardSection style={{ position: "absolute", top: 300 }}>
           <Button onPress={this.onButtonPress.bind(this)}>Save</Button>
         </CardSection>
@@ -30,6 +30,5 @@ const mapStateToProps = (state) => {
 };
 
 export default connect(mapStateToProps, {
-  employeeUpdate,
   employeeCreate,
 })(EmployeeCreate);

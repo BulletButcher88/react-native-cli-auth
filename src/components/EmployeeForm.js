@@ -5,15 +5,17 @@ import { employeeUpdate } from '../actions/EmployeeAction';
 import CardSection from '../components/common/CardSection';
 import Input from '../components/common/Input';
 
+
 class EmployeeForm extends Component {
   render() {
+    const { name, phone, shift } = this.props ? this.props : null;
     return (
       <View>
         <CardSection>
           <Input
             placeholder="Jane Dole"
             label="name"
-            value={this.props.name}
+            value={name}
             onChangeText={(value) =>
               this.props.employeeUpdate({ prop: 'name', value })
             }
@@ -23,7 +25,7 @@ class EmployeeForm extends Component {
           <Input
             placeholder="0000-555-555"
             label="phone"
-            value={this.props.phone}
+            value={phone}
             onChangeText={(value) =>
               this.props.employeeUpdate({ prop: 'phone', value })
             }
@@ -35,7 +37,7 @@ class EmployeeForm extends Component {
           <Picker
             style={{ flex: 1, flexDirection: 'column' }}
             itemStyle={{ backgroundColor: "black", color: "#4285F4", fontSize: 22 }}
-            selectedValue={this.props.shift}
+            selectedValue={shift}
             onValueChange={(value) =>
               this.props.employeeUpdate({ prop: 'shift', value })
             }>
